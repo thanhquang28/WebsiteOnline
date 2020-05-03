@@ -1,0 +1,109 @@
+﻿@model Model.EF.User
+
+@{
+    ViewBag.Title = "Edit User";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Edit User</h3>
+                </div>
+                <!-- /.card-header -->
+                @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="card-body">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ID)
+                        @Html.HiddenFor(model => model.Username)
+                        @Html.HiddenFor(model => model.Password)
+                        @Html.HiddenFor(model => model.CreatedBy)
+                        @Html.HiddenFor(model => model.CreateDate)
+                        <div class="row">
+                            <div class="col-md-4 m-auto">
+
+                                @if (Model.Image == null)
+                                {
+                                    <div class="text-center">
+                                        <i class="far fa-images" style="font-size: 50px"></i>
+                                        <p>No Image is uploaded. Please choose one</p>
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    <div class="rounded-circle mx-auto d-block border border-secondary" style="background:url(@Html.GetImgUser()) 50% 50% no-repeat;width:200px;height:200px;">
+
+                                    </div>
+                                    
+                                }
+
+                                <div class="input-group mb-3 mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-images"></i></span>
+                                    </div>
+                                    <input type="file" name="editImage" id="editImage" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-md-4 border-left border-right">
+                                <h3>Personal Infomation</h3>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user-astronaut"></i></span>
+                                    </div>
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter name" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
+                                    </div>
+                                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter address" } })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="input-group mb-3 ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                    </div>
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter email", @type = "email" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                                    </div>
+                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter phone" } })
+                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h3>Details</h3>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+
+                                        <span class="input-group-text"> @Html.CheckBoxFor(model => model.Status)</span>
+                                    </div>
+
+                                    <p class="form-control">Active?</p>
+                                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer ">
+                        <button type="submit" class="btn btn-primary float-right">Submit</button>
+                        @Html.ActionLink("    Back to List", "Index", null, new { @class = "text-success ion-arrow-return-left" })
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

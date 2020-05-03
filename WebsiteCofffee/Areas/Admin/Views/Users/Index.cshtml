@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Model.EF.User>
+
+@{
+    ViewBag.Title = "All User";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section pagecss{
+    <link rel="stylesheet" href="~/assets/admin/datatables-bs4/css/dataTables.bootstrap4.min.css">
+}
+
+@section pagejs{
+    <!-- DataTables -->
+    <script src="~/assets/admin/datatables/jquery.dataTables.js"></script>
+    <script src="~/assets/admin/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Datatable JQuery-->
+    <script>
+        $(function () {
+            $('#usersTable').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": true,
+                "ordering": false,
+                "info": true,
+                "autoWidth": true,
+            });
+        });
+    </script>
+}
+<div class="card">
+    <div class="card-header text-center">
+        <p class="card-title float-none">@Html.ActionLink(" ", "Create",null, new
+                                    {
+                                        @class = "btn btn-info fas fa-user-plus",
+                                        @style = "font-size: 25px",
+                                        @title = "Add new User"
+                                    })</p>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="usersTable" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Avatar</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Create By</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td class="text-center" style="vertical-align: middle;">
+                        @if (item.Image == null)
+                        {
+                        <span style="font-size: 20px"><i class="fas fa-user-secret"></i></span>
+                        }
+                        else
+                        {
+                            @Html.Image(item.Image, "", new { style= "max-height: 80px;" })
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        <div class="d-inline-block text-truncate" style="max-width: 100px">@Html.DisplayFor(modelItem => item.Email)</div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td class="text-center">
+                        @if (item.Status)
+                        {
+                            <i class="fas fa-check-circle text-success" style="font-size: 20px"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-times-circle text-danger" style="font-size: 20px"></i>
+                        }
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>
+                    <td>
+                        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "btn btn-primary fas fa-user-edit", @style = "font-size: 15px" }) |
+                        @Html.ActionLink(" ", "Details", new { id = item.ID }, new { @class = "btn btn-success fas fa-info-circle", @style = "font-size: 15px" }) |
+                        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "btn btn-danger fas fa-user-times", @style = "font-size: 15px", @onclick="return confirm('Are you sure to delete this user?')" })
+                    </td>
+                </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Create By</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <!-- /.card-body -->
+</div>

@@ -1,0 +1,144 @@
+﻿@model Model.EF.User
+
+@{
+    ViewBag.Title = "User Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Detail User</h3>
+                </div>
+                <!-- /.card-header -->
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+            <div class="card-body">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                
+                <div class="row">
+                    <div class="col-md-4 m-auto">
+                        <div class="text-center">
+                            @if (Model.Image != null)
+                            {
+                                <div class="rounded-circle mx-auto d-block border border-secondary" 
+                                     style="background:url(@Html.GetImgUser()) 50% 50% no-repeat;
+                                            width:200px;height:200px;">
+                                    <a href="@Html.GetImgUser()" 
+                                       title="See full image" 
+                                       target="_blank" 
+                                       style="display:block;height:200px;width:200px;"></a>
+                                </div>
+                            }
+                            else
+                            {
+                                <i class="fas fa-user-secret" style="font-size:100px"></i>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 border-right border-left">
+                        <h3>Personal Infomation</h3>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user-astronaut"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-at"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <h3>Details</h3>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user-cog"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                            @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user-clock"></i></span>
+                            </div>
+                            <input class="form-control" disabled value="Created at @Model.CreateDate" />
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+
+                                <span class="input-group-text">
+                                    @if (Model.Status)
+                                    {<i class="fas fa-check-circle text-success" style="font-size: 20px"></i> }
+                                    else
+                                    { <i class="fas fa-times-circle text-danger" style="font-size: 20px"></i>}
+                                </span>
+                            </div>
+                            <p class="form-control">
+                                @if (Model.Status)
+                                {<text>Active</text>}
+                            else
+                            {<text>Inactive</text>}
+                            </p>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user-edit"></i></span>
+                            </div>
+                            <input class="form-control" disabled value="@if (Model.ModifiedBy == null) { <text>This user hasn't been modified</text> } else { <text>Last modify by @Model.ModifiedBy</text> } " />
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user-clock"></i></span>
+                            </div>
+                            <input class="form-control" disabled value="@if (Model.ModifiedDate == null) { <text>This user hasn't been modified</text> } else { <text>Last modify at @Model.ModifiedDate</text> } " />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    <div class="card-footer ">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class="btn btn-primary float-right" }) 
+                        @Html.ActionLink("    Back to List", "Index",null, new { @class= "text-success ion-arrow-return-left" })
+                    </div>
+            }
+            </div>
+        </div>
+    </div>
+
+
+</div>

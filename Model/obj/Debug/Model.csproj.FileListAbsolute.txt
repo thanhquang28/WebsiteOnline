@@ -1,0 +1,12 @@
+D:\VisualStuProject\WebsiteCofffee\Model\obj\Debug\Model.csprojAssemblyReference.cache
+D:\VisualStuProject\WebsiteCofffee\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\VisualStuProject\WebsiteCofffee\Model\bin\Debug\Model.dll.config
+D:\VisualStuProject\WebsiteCofffee\Model\bin\Debug\Model.dll
+D:\VisualStuProject\WebsiteCofffee\Model\bin\Debug\Model.pdb
+D:\VisualStuProject\WebsiteCofffee\Model\bin\Debug\EntityFramework.dll
+D:\VisualStuProject\WebsiteCofffee\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\VisualStuProject\WebsiteCofffee\Model\bin\Debug\EntityFramework.xml
+D:\VisualStuProject\WebsiteCofffee\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\VisualStuProject\WebsiteCofffee\Model\obj\Debug\Model.csproj.CopyComplete
+D:\VisualStuProject\WebsiteCofffee\Model\obj\Debug\Model.dll
+D:\VisualStuProject\WebsiteCofffee\Model\obj\Debug\Model.pdb
