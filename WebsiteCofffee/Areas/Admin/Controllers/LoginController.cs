@@ -31,11 +31,10 @@ namespace WebsiteCofffee.Areas.Admin.Controllers
                     Session.Add(CommonConstants.USER_SESSION,userSession );
 
                     //make variable for session
-                    Session["Username"] = user.Username;
+                    Session["Username"] = user.Username; 
                     Session["UserId"] = user.ID;
                     Session["NameOfUser"] = user.Name;
                     Session["DirectionAva"] = user.UrlImage;
-
                     return RedirectToAction("Index", "Home");
                 }
                 else if (result == -1)
