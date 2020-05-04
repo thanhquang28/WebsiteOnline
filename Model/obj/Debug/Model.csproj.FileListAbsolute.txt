@@ -10,3 +10,15 @@ D:\VisualStuProject\WebsiteCofffee\Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\VisualStuProject\WebsiteCofffee\Model\obj\Debug\Model.csproj.CopyComplete
 D:\VisualStuProject\WebsiteCofffee\Model\obj\Debug\Model.dll
 D:\VisualStuProject\WebsiteCofffee\Model\obj\Debug\Model.pdb
+C:\Users\Admin\Desktop\WebsiteOnline\Model\bin\Debug\Model.dll.config
+C:\Users\Admin\Desktop\WebsiteOnline\Model\bin\Debug\Model.dll
+C:\Users\Admin\Desktop\WebsiteOnline\Model\bin\Debug\Model.pdb
+C:\Users\Admin\Desktop\WebsiteOnline\Model\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\WebsiteOnline\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\WebsiteOnline\Model\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\WebsiteOnline\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\WebsiteOnline\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\WebsiteOnline\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\WebsiteOnline\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\Admin\Desktop\WebsiteOnline\Model\obj\Debug\Model.dll
+C:\Users\Admin\Desktop\WebsiteOnline\Model\obj\Debug\Model.pdb

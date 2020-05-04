@@ -19,6 +19,8 @@ namespace Model.EF
 
         public long? ParentID { get; set; }
 
+        public long? CategoryID { get; set; }
+
         public int? DisplayOrder { get; set; }
 
         [StringLength(250)]
