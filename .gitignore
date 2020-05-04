@@ -7,3 +7,5 @@ WebsiteCofffee/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.cache
 .vs/WebsiteCofffee/v16/.suo
 WebsiteCofffee/obj/Debug/WebsiteCofffee.csprojAssemblyReference.cache
+*.dll
+*.pdb
