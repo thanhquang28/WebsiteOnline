@@ -2,3 +2,10 @@
 *.cache
 Model/obj/Debug/Model.csprojAssemblyReference.cache
 WebsiteCofffee/obj/Debug/WebsiteCofffee.csprojAssemblyReference.cache
+.vs/WebsiteCofffee/v16/.suo
+WebsiteCofffee/bin/WebsiteCofffee.dll
+WebsiteCofffee/bin/WebsiteCofffee.pdb
+WebsiteCofffee/obj/Debug/WebsiteCofffee.dll
+WebsiteCofffee/obj/Debug/WebsiteCofffee.pdb
+*.cache
+*.dll
