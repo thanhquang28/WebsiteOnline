@@ -192,9 +192,5 @@ namespace WebsiteCofffee.Areas.Admin.Controllers
             base.Dispose(disposing);
         }
 
-        public void PassUserInfoToSession(User user)
-        {
-            
-        }
     }
 }

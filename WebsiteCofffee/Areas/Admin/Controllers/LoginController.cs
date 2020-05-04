@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WebsiteCofffee.Areas.Admin.Models;
 using Model.DAO;
 using WebsiteCofffee.Common;
+using System.Web.Security;
 
 namespace WebsiteCofffee.Areas.Admin.Controllers
 {
@@ -30,11 +31,16 @@ namespace WebsiteCofffee.Areas.Admin.Controllers
                     userSession.UserID = user.ID;
                     Session.Add(CommonConstants.USER_SESSION,userSession );
 
+                    //set timeout for session
+                    FormsAuthentication.SetAuthCookie(user.Username, false);
+                    Session.Timeout = 120;//unit: minutes
+
                     //make variable for session
                     Session["Username"] = user.Username; 
                     Session["UserId"] = user.ID;
                     Session["NameOfUser"] = user.Name;
                     Session["DirectionAva"] = user.UrlImage;
+
                     return RedirectToAction("Index", "Home");
                 }
                 else if (result == -1)
