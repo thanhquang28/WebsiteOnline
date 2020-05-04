@@ -1,0 +1,4 @@
+
+*.cache
+Model/obj/Debug/Model.csprojAssemblyReference.cache
+WebsiteCofffee/obj/Debug/WebsiteCofffee.csprojAssemblyReference.cache
