@@ -10,7 +10,7 @@ using Model.EF;
 
 namespace WebsiteCofffee.Areas.Admin.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
         private OnlineShopDbContext db = new OnlineShopDbContext();
 
