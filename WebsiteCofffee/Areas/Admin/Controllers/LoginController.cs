@@ -36,15 +36,11 @@ namespace WebsiteCofffee.Areas.Admin.Controllers
                     Session.Timeout = 120;//unit: minutes
 
                     //make variable for session
-                    Session["Username"] = user.Username;
+                    Session["Username"] = user.Username; 
                     Session["UserId"] = user.ID;
                     Session["NameOfUser"] = user.Name;
                     Session["DirectionAva"] = user.UrlImage;
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
                     return RedirectToAction("Index", "Home");
                 }
                 else if (result == -1)
